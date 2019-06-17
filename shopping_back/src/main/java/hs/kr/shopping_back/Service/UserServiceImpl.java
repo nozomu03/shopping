@@ -29,6 +29,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean Edit(User u) {
         this.ur.save(u);
+        System.out.print("진입");
         return true;
     }
 }
