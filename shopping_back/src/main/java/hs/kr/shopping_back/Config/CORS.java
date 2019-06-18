@@ -1,4 +1,4 @@
-package hs.dgsw.shopping.Config;
+package hs.kr.shopping_back.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
