@@ -1,5 +1,7 @@
 import UserStore from "./UserStore";
+import ProductStore from "./ProductStore";
 
 export default{
-    userstore : UserStore
+    userstore : UserStore,
+    productstore : ProductStore
 }

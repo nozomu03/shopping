@@ -1,55 +1,34 @@
 import React, {Component} from 'react';
-import {observer} from "mobx-react";
-import Stores from "../Stores";
+import {inject, observer} from "mobx-react";
+import Store from "../Stores"
 
+@inject("stores")
 @observer
 class Index extends Component {
-    state = {
-        account : "",
-        pw : ""
+    state={
+        "items" : ""
+    }
+    componentDidMount() {
+        this.props.stores.productstore.getThree();
     }
 
-    changeAccount = (e) => {
-        console.log(this.state.account);
-        this.setState({
-            ...this.state,
-            account: e.target.value
-        })
-    };
-
-    changePw = (e) => {
-        console.log(this.state.pw);
-        this.setState({
-            ...this.state,
-            pw: e.target.value
-        })
-    };
-
-    login(){
-        if(Stores.userstore.login(this.state.account, this.state.pw)){
-            localStorage.setItem("login", "" + true);
-            localStorage.setItem("account", this.state.account);
-            window.location.reload();
-        }
+    testFunc(){
+     //   console.log(Store.productstore.getThree());
     }
+
     render() {
-        if(!localStorage.login) {
-            return (
-                <div id={"login"}>
-                    <input type={"text"} onChange={this.changeAccount} values={this.state.account}
-                           placeholder="아이디"/><br/>
-                    <input type="password" onChange={this.changePw} values={this.state.pw} placeholder="패스워드"/>
-                    <button onClick={() => this.login()}>로그인</button>
-                </div>
-            );
-        }
-        else{
-            return(
-                <div>
-                    <span>{localStorage.account}님 로그인 하셨습니다.</span>
-                </div>
-            );
-        }
+        let p = this.props.stores.productstore;
+       // console.log(p.items.target.value);
+        return (
+            <div>
+                <header>
+                    <h3>xx에 오신 것을 환영합니다.</h3>
+                </header>
+                <section>
+                    <p>상품 목록</p>
+                </section>
+            </div>
+        );
     }
 }
 
