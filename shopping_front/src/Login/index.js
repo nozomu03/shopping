@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {observer} from "mobx-react/dist/mobx-react";
 import Stores from "../Stores";
+import "./login.scss"
 
 @observer
 class Index extends Component {
@@ -25,6 +26,11 @@ class Index extends Component {
         })
     };
 
+    logout(){
+        localStorage.removeItem("login");
+        window.location.reload();
+    }
+
     login(){
         if(Stores.userstore.login(this.state.account, this.state.pw)){
             localStorage.setItem("login", "" + true);
@@ -45,8 +51,9 @@ class Index extends Component {
         }
         else{
             return(
-                <div>
-                    <span>{localStorage.account}님 로그인 하셨습니다.</span>
+                <div id={"logout"}>
+                    <span>{localStorage.account}님 로그인 하셨습니다.</span><br/>
+                    <button onClick={() => this.logout()}>로그아웃</button>
                 </div>
             );
         }

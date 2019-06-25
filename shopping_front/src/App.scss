@@ -1,0 +1,36 @@
+.app-header{
+  position: fixed;
+  left: 0;
+  right:0;
+  height: 55px;
+  .menubar{
+    margin-top: -28px;
+    margin-left: 150px;
+    list-style: none;
+    li{
+      float: left;
+      a{
+        text-decoration: none;
+        padding: 20px;
+        font-size: 20px;
+        &:hover{
+          color: blue;
+          border-bottom: 3px solid black;
+        }
+      }
+    }
+  }
+}
+
+#search{
+  margin-left: 500px;
+  margin-top: -43px;
+}
+
+//.app-body{
+//  position: absolute;
+//  top: 40px;
+//  left: 60px;
+//  right: 0;
+//  bottom: 0;
+//}
