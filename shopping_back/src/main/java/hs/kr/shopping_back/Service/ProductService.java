@@ -8,6 +8,7 @@ public interface ProductService {
     List<Product> GetAllProduct();
     Product GetProoduct(Long id);
     Product[] threeP();
+    List GetCategory(String cate);
   //  boolean UploadProduct(Product p);
   //  byte[] GetImage();
 //    boolean UploadImage(Product p);

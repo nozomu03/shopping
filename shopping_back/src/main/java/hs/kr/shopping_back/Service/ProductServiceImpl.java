@@ -5,6 +5,7 @@ import hs.kr.shopping_back.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -12,6 +13,13 @@ import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService{
+    @PostConstruct
+    void AddUPost(){
+        this.rr.save(new Product("1", "WOW", "1", 1, 1, "food", "1"));
+        this.rr.save(new Product("1", "WOW", "1", 1, 1, "cloth", "1"));
+        this.rr.save(new Product("1", "WOW", "1", 1, 1, "hobby", "1"));
+    }
+
     @Autowired
     private ProductRepository rr;
 
@@ -45,4 +53,8 @@ public class ProductServiceImpl implements ProductService{
         return returnable;
     }
 
+    @Override
+    public List GetCategory(String cate) {
+        return this.rr.findByCategory(cate);
+    }
 }

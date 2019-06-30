@@ -29,4 +29,9 @@ public class ProductController {
     public Product[] Three(){
         return this.ps.threeP();
     }
+
+    @GetMapping("product/category/{cate}")
+    public List Category(@PathVariable String cate){
+        return this.ps.GetCategory(cate);
+    }
 }

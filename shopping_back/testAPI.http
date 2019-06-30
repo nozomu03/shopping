@@ -5,6 +5,42 @@
 # * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
+DELETE  http://localhost:8080/deleteBasket/1
+Content-Type: application/json
+
+{
+  "id": "3",
+  "name": "1"
+}
+
+###
+
+GET http://localhost:8080/getBasket/4
+Accept: application/json
+
+###
+
+POST http://localhost:8080/addBasket/4
+Content-Type: application/json
+
+{
+  "name" : "1",
+  "content" : "1",
+  "inform" : "1",
+  "price" : "1",
+  "real_price" : "1",
+  "category" : "1",
+  "creater" : "1"
+}
+
+
+###
+
+GET http://localhost:8080/product/category/1
+Accept: application/json
+
+###
+
 GET http://localhost:8080/product/getAll
 Accept: application/json
 

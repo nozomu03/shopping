@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Store from "../Stores";
+import "./join.scss";
 import {observer, inject} from "mobx-react";
 
 @inject("stores")
@@ -88,20 +89,30 @@ class Index extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <input type={"text"} onChange={this.changeAccount} values={this.state.account}
-                placeholder="아이디"/><br/>
-                <input type="password" onChange={this.changePw} values={this.state.pw} placeholder="패스워드"/><br/>
-                <input type="text" onChange={this.changeAdress} values={this.state.address} placeholder="주소"/><br/>
-                <input type="text" onChange={this.changeEmail} values={this.state.email} placeholder="이메일"/><br/>
-                <input type="text" onChange={this.changeHp} values={this.state.hp} placeholder="휴대전화"/><br/>
-                <input type="text" onChange={this.changeHpn} values={this.state.hpn} placeholder="집전화"/><br/>
-                <input type="text" onChange={this.changeName} values={this.state.name} placeholder="이름"/><br/>
-                <input type="text" onChange={this.changePostcode} values={this.state.postcode} placeholder="우편번호"/><br/>
-                <button onClick={() => this.join()}>확인</button>
-            </div>
-        );
+        if (localStorage.login == null) {
+            return (
+                <div id={"all"}>
+                    <input type={"text"} onChange={this.changeAccount} values={this.state.account}
+                           placeholder="아이디"/><br/>
+                    <input type="password" onChange={this.changePw} values={this.state.pw} placeholder="패스워드"/><br/>
+                    <input type="text" onChange={this.changeAdress} values={this.state.address} placeholder="주소"/><br/>
+                    <input type="text" onChange={this.changeEmail} values={this.state.email} placeholder="이메일"/><br/>
+                    <input type="text" onChange={this.changeHp} values={this.state.hp} placeholder="휴대전화"/><br/>
+                    <input type="text" onChange={this.changeHpn} values={this.state.hpn} placeholder="집전화"/><br/>
+                    <input type="text" onChange={this.changeName} values={this.state.name} placeholder="이름"/><br/>
+                    <input type="text" onChange={this.changePostcode} values={this.state.postcode}
+                           placeholder="우편번호"/><br/>
+                    <button onClick={() => this.join()}>확인</button>
+                </div>
+            );
+        }
+        else{
+            return(
+                <div id={"all"}>
+                    <h3>로그인 상태에서는 수행할 수 없습니다.</h3>
+                </div>
+            );
+        }
     }
 }
 

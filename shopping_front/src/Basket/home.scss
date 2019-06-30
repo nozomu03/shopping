@@ -1,0 +1,25 @@
+#table {
+  display: table;
+  border: 1px solid silver;
+  cursor: pointer;
+  width: 40%;
+  div:not(#first){
+    &:hover {
+      background-color: #efefef;
+    }
+  }
+}
+.row{
+  display: table-row;
+}
+.cell {
+  display: table-cell; border-bottom: 1px solid #DDD;
+  padding: 5px 10px;
+  overflow: hidden;
+  text-align: center;
+}
+
+#every{
+  margin-top: 50px;
+  margin-left: 5px;
+}

@@ -30,6 +30,23 @@ class UserStore{
         }
     }
 
+    @action addBasket = async(id, data) => {
+        let response;
+        try{
+            response = await  axios({
+                url: "http://localhost:8080/addBasket/"+id,
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8'
+                },
+                method: "post",
+                data: JSON.stringify(data)
+            });
+            alert("추가되었습니다");
+        }catch(ex) {
+            alert("이미 추가된 상품입니다.");
+        }
+    }
+
     @action join = async(account, pw, adress, email, hp, hpn, name, postcode) => {
         try{
             let response = await  axios({
@@ -64,6 +81,37 @@ class UserStore{
         }catch(ex){
             alert(ex.toString());
         }
+    }
+
+    @action getBasket = async(id) =>{
+        try {
+            let response = await axios({
+                url: "http://localhost:8080/getBasket/" + id,
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8'
+                },
+                method: "get"
+            });
+            return response.data;
+        }catch(ex){
+            alert(ex.toString());
+        }
+    }
+    @action deleteBasket = async(id, data) => {
+        try {
+            let response = await axios({
+                url: "http://localhost:8080/deleteBasket/" + id,
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8'
+                },
+                method: "delete",
+                data : JSON.stringify(data)
+            });
+            return response.data;
+        }catch(ex){
+            alert(ex.toString());
+        }
+
     }
 }
 
